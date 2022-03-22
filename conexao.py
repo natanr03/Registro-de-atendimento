@@ -1,7 +1,8 @@
+
 import pyodbc
 
 dados_conexao = (
-    "Driver={SQL Server};"
+  "Driver={SQL Server};"
     "Server=DESKTOP-AAE0RNM;"
     "Database=Carros;"
 )
@@ -10,9 +11,17 @@ conexao = pyodbc.connect(dados_conexao)
 print("Conexão Bem Sucedida")
 
 cursor = conexao.cursor()
-comando = """ INSERT INTO Carros (nome,telefone,marca,modelo,observação)
+
+
+nome = "Sampiros"
+telefone = 11977572011
+marca = "FORD"
+modelo = "CARGO1519B"
+observação = "NÂO"
+
+comando = f"""INSERT INTO Vendas(nome, telefone, marca, modelo, observação)
 VALUES
-('Natan', 11962388170,'SCANIA','G 420 6X2', 'nada')"""
+    ({nome}, '{telefone}', '{marca}', '{modelo}', {observação})"""
 
 cursor.execute(comando)
-commit()
+cursor.commit()
