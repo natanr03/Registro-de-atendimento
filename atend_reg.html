@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario de registros</title>
+	  <link rel="stylesheet" type="text/css" href="atend_reg.css" />
+  </head>
+<body>
+  <h1>Registro de Atendimento</h1>
+  <p>Por favor, preencha todos os campos deste formulário</p>
+  <form method="POST" autocomplete="off" action="connect.php">
+<fieldset>
+  <div class="autocomplete" style="width:500px;">
+    <label>Nome<input type="text" name="nome" required/></label>
+  </div>
+  <div style="width:500px;">
+    <label>Telefone<input type="text" name="telefone" required/></label>
+  </div>
+  <div class="autocomplete" style="width:500px;">
+    <label>Marca<input id="marca" type="text" name="marca" placeholder="Digite a fabricante do caminhao"  required/></label>
+  </div>
+  <div class="autocomplete" style="width:500px;">
+    <label>Modelo<input id="modelo" type="text" name="modelo" placeholder="Digite o modelo do caminhao" required/></label>
+  </div>
+<!--<div class="autocomplete" style="width:500px;">
+    <label>Peça<input type="text" name="peca" required/></label>
+  </div> -->
+  <div style="width:500px;">
+    <label>Observacao<textarea id="observacao" name="observacao" style="width:500px;"></textarea>
+    </label>
+  </div>
+</fieldset>
+    <input id="registrar" type="submit" value="Registrar"/> 
+    </form>
+<script src="registro.js"></script>
+  </body>
+</html>
