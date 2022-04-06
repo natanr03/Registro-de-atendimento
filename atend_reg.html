@@ -1,36 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Formulario de registros</title>
-	  <link rel="stylesheet" type="text/css" href="atend_reg.css" />
+    <meta charset="UTF-8">
+
+    <title>Formulário de registros</title>  
+	 <link rel="stylesheet" type="text/css" href="atend_reg.css" /> 
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   </head>
 <body>
   <h1>Registro de Atendimento</h1>
   <p>Por favor, preencha todos os campos deste formulário</p>
-  <form method="POST" autocomplete="off" action="connect.php">
+  <form method="POST" action="">
 <fieldset>
-  <div class="autocomplete" style="width:500px;">
-    <label>Nome<input type="text" name="nome" required/></label>
+  <div style="width:500px;">
+    <label>Nome<input type="text" id="nome" name="nome" required/></label>
   </div>
   <div style="width:500px;">
-    <label>Telefone<input type="text" name="telefone" required/></label>
+    <label>Telefone<input type="text" id="telefone" name="telefone" required/></label>
   </div>
-  <div class="autocomplete" style="width:500px;">
-    <label>Marca<input id="marca" type="text" name="marca" placeholder="Digite a fabricante do caminhao"  required/></label>
-  </div>
-  <div class="autocomplete" style="width:500px;">
-    <label>Modelo<input id="modelo" type="text" name="modelo" placeholder="Digite o modelo do caminhao" required/></label>
-  </div>
-<!--<div class="autocomplete" style="width:500px;">
-    <label>Peça<input type="text" name="peca" required/></label>
-  </div> -->
   <div style="width:500px;">
-    <label>Observacao<textarea id="observacao" name="observacao" style="width:500px;"></textarea>
+    <label>E-mail<input id="email" type="email" name="email"  required/></label>
+  </div>
+  <div style="width:500px;">
+    <label>Marca<input  type="text" id="marca" name="marca" placeholder="Digite a fabricante do caminhão"  required/></label>
+  </div>
+  <div  style="width:500px;">
+    <label>Modelo<input  type="text" id="modelo" name="modelo" placeholder="Digite o modelo do caminhão" required/></label>
+  </div>
+  <div class="autocomplete" style="width:500px;">
+    <label>Peças<input id="pecas" type="text" name="pecas" required /></label>
+  </div>
+  <div style="width:500px;">
+    <div class="autocomplete" style="width:500px;">
+      <label>Vendedor<input id="vendedor" type="text" name="vendedor" required /></label>
+    </div>
+    <label>Observação<textarea id="observacao" name="observacao" style="width:500px;"></textarea>
     </label>
   </div>
 </fieldset>
-    <input id="registrar" type="submit" value="Registrar"/> 
+    <input id="registrar" type="submit" name="registrar" value="Registrar"/> 
     </form>
-<script src="registro.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+      $.getJSON("search.php", function(data){
+        //console.log(data);
+
+         var retorno_itens = [];
+         $(data).each(function(key,value){
+           retorno_itens.push(value.CAM_FABRN);
+         })
+
+       $("#marca").autocomplete({
+         source: retorno_itens
+       });
+      });
+    </script>
+    
   </body>
 </html>
