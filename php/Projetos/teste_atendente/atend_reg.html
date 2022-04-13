@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Formulário de registros</title>  
+	 <link rel="stylesheet" type="text/css" href="atend_reg.css" /> 
+   
+  </head>
+  <h1>Registro de Atendimento</h1>
+  <p>Por favor, preencha todos os campos deste formulário</p>
+  <form method="POST" action="registrar.php">
+<fieldset>
+  <div style="width:500px;">
+    <label>Nome<input type="text" id="nome" name="nome" required></label>
+  </div>
+  <div style="width:500px;">
+    <label>Telefone<input type="text" id="telefone" name="telefone" required></label>
+  </div>
+  <div style="width:500px;">
+    <label>E-mail<input id="email" type="email" name="email"  required></label>
+  </div>
+  <div style="width:500px;">
+    <label>Marca<input  type="text" id="marca" name="marca" placeholder="Digite a fabricante do caminhão"  required >
+  </label>
+  </div>
+  <div  style="width:500px;">
+    <label>Modelo<input  type="text" id="modelo" name="modelo" placeholder="Digite o modelo do caminhão" required></label>
+  </div>
+  <div class="autocomplete" style="width:500px;">
+    <label>Peças<input id="pecas" type="text" name="pecas" required ></label>
+  </div>
+  <div style="width:500px;">
+    <div class="autocomplete" style="width:500px;">
+      <label>Vendedor<input id="vendedor" type="text" name="vendedor" required ></label>
+    </div>
+    <label>Observação<textarea id="observacao" name="observacao" style="width:500px;"></textarea>
+    </label>
+  </div>
+</fieldset>
+    <input id="registrar" type="submit" name="registrar" value="Registrar"/> 
+    </form>
+    <!--<script>
+    $.getJSON("search.php", function(data){
+      console.log(data);
+           
+       var retorno_itens = [];
+       $(data).each(function(key,value){
+         retorno_itens.push(value.CAM_FABRN);
+       })
+
+     $("#marca").autocomplete({
+       source: retorno_itens
+     });
+    });
+    </script> -->
+   
+    <!--<script src="registro.js"></script> -->
+  </body>
+</html>
